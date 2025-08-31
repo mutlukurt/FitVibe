@@ -1,8 +1,6 @@
-# 🏃‍♂️ FitTracker - Your Personal Fitness Journey
+# 🏃‍♂️ FitVibe - Modern Fitness Tracker
 
 <div align="center">
-
-![FitTracker Dashboard](assets/1.png)
 
 **A modern, responsive fitness tracking web application built with vanilla JavaScript, HTML5, and CSS3**
 
@@ -15,9 +13,24 @@
 
 </div>
 
+## 📱 Screenshots
+
+<table>
+<tr>
+<td><img src="assets/1.png" width="300" alt="Home Dashboard - Real-time activity tracking with progress rings"></td>
+<td><img src="assets/2.png" width="300" alt="Progress Tracking - Weekly analytics and achievement overview"></td>
+<td><img src="assets/3.png" width="300" alt="Workout Categories - Strength, Cardio, Yoga, and HIIT workouts"></td>
+</tr>
+<tr>
+<td><img src="assets/4.png" width="300" alt="Profile Settings - User profile and health metrics management"></td>
+<td><img src="assets/5.png" width="300" alt="Activity History - Detailed workout logs and statistics"></td>
+<td><img src="assets/6.png" width="300" alt="Health Data - BMI calculator and health monitoring tools"></td>
+</tr>
+</table>
+
 ## 🌟 Overview
 
-FitTracker is a comprehensive fitness tracking web application designed to help users monitor their daily activities, set fitness goals, and track their progress over time. Built with modern web technologies and following mobile-first design principles, it provides an intuitive and engaging user experience across all devices.
+FitVibe is a comprehensive fitness tracking web application designed to help users monitor their daily activities, set fitness goals, and track their progress over time. Built with modern web technologies and following mobile-first design principles, it provides an intuitive and engaging user experience across all devices.
 
 ## ✨ Features
 
@@ -27,15 +40,11 @@ FitTracker is a comprehensive fitness tracking web application designed to help 
 - **Goal Management**: Set and track daily fitness goals
 - **Activity History**: Comprehensive logging of all fitness activities
 
-![Dashboard View](assets/2.png)
-
 ### 🏋️‍♀️ Workout Management
 - **Workout Library**: Extensive collection of workouts across different categories
 - **Workout Categories**: Strength, Cardio, Yoga, and HIIT workouts
 - **Difficulty Levels**: Beginner to Advanced workout options
 - **Custom Workouts**: Create and save personalized workout routines
-
-![Workout Library](assets/3.png)
 
 ### 📈 Progress Tracking
 - **Weekly/Monthly/Yearly Views**: Comprehensive progress analytics
@@ -43,23 +52,17 @@ FitTracker is a comprehensive fitness tracking web application designed to help 
 - **Trend Analysis**: Visual charts showing fitness improvements
 - **Goal Achievement**: Track completion of fitness objectives
 
-![Progress Analytics](assets/4.png)
-
 ### 👤 User Profile & Social
 - **Personal Profile**: Customize your fitness profile
 - **Health Metrics**: BMI calculation and health data tracking
 - **Social Features**: Connect with friends and join challenges
 - **Settings Management**: Personalize app preferences
 
-![User Profile](assets/5.png)
-
 ### 📱 Mobile-First Design
 - **Responsive Layout**: Optimized for all screen sizes (320px to 1920px+)
 - **Touch-Friendly Interface**: Intuitive gestures and interactions
 - **Progressive Web App**: Works offline and can be installed on mobile devices
 - **Fast Performance**: Smooth animations and quick load times
-
-![Mobile Interface](assets/6.png)
 
 ## 🛠️ Technology Stack
 

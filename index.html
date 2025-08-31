@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTracker - Your Fitness Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-screen="dashboard">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-screen="workout">
+                <i data-lucide="dumbbell"></i>
+                <span>Workout</span>
+            </button>
+            <button class="nav-item" data-screen="progress">
+                <i data-lucide="trending-up"></i>
+                <span>Progress</span>
+            </button>
+            <button class="nav-item" data-screen="profile">
+                <i data-lucide="user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Dashboard Screen -->
+        <div class="screen active" id="dashboard">
+            <header class="screen-header">
+                <div class="header-content">
+                    <div class="user-greeting">
+                        <h1>Good morning, <span class="user-name">Mutlu Kurt</span></h1>
+                        <p class="date-info">Today • <span id="current-date"></span></p>
+                    </div>
+                    <button class="notification-btn">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge">2</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="screen-content">
+                <!-- Activity Overview Cards -->
+                <div class="activity-cards">
+                    <div class="activity-card steps-card">
+                        <div class="card-header">
+                            <i data-lucide="footprints" class="card-icon"></i>
+                            <span class="card-title">Steps</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="metric-value">
+                                <span class="counter" data-target="8547">0</span>
+                                <span class="metric-unit">steps</span>
+                            </div>
+                            <div class="progress-ring">
+                                <svg class="ring-svg" width="60" height="60">
+                                    <circle class="ring-background" cx="30" cy="30" r="25"></circle>
+                                    <circle class="ring-progress" cx="30" cy="30" r="25" data-progress="85"></circle>
+                                </svg>
+                                <span class="ring-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="goal-text">Goal: 10,000 steps</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-card calories-card">
+                        <div class="card-header">
+                            <i data-lucide="flame" class="card-icon"></i>
+                            <span class="card-title">Calories</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="metric-value">
+                                <span class="counter" data-target="1847">0</span>
+                                <span class="metric-unit">cal</span>
+                            </div>
+                            <div class="progress-ring">
+                                <svg class="ring-svg" width="60" height="60">
+                                    <circle class="ring-background" cx="30" cy="30" r="25"></circle>
+                                    <circle class="ring-progress" cx="30" cy="30" r="25" data-progress="74"></circle>
+                                </svg>
+                                <span class="ring-percentage">74%</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="goal-text">Goal: 2,500 cal</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-card distance-card">
+                        <div class="card-header">
+                            <i data-lucide="map-pin" class="card-icon"></i>
+                            <span class="card-title">Distance</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="metric-value">
+                                <span class="counter" data-target="6.2">0</span>
+                                <span class="metric-unit">km</span>
+                            </div>
+                            <div class="progress-ring">
+                                <svg class="ring-svg" width="60" height="60">
+                                    <circle class="ring-background" cx="30" cy="30" r="25"></circle>
+                                    <circle class="ring-progress" cx="30" cy="30" r="25" data-progress="62"></circle>
+                                </svg>
+                                <span class="ring-percentage">62%</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="goal-text">Goal: 10 km</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-card active-card">
+                        <div class="card-header">
+                            <i data-lucide="clock" class="card-icon"></i>
+                            <span class="card-title">Active Time</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="metric-value">
+                                <span class="counter" data-target="47">0</span>
+                                <span class="metric-unit">min</span>
+                            </div>
+                            <div class="progress-ring">
+                                <svg class="ring-svg" width="60" height="60">
+                                    <circle class="ring-background" cx="30" cy="30" r="25"></circle>
+                                    <circle class="ring-progress" cx="30" cy="30" r="25" data-progress="78"></circle>
+                                </svg>
+                                <span class="ring-percentage">78%</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="goal-text">Goal: 60 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Quick Start</h2>
+                    <div class="action-buttons">
+                        <button class="action-btn workout-btn">
+                            <i data-lucide="play"></i>
+                            <span>Start Workout</span>
+                        </button>
+                        <button class="action-btn walk-btn" id="trackWalkBtn">
+                            <i data-lucide="footprints"></i>
+                            <span>Track Walk</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="dumbbell"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h3>Upper Body Workout</h3>
+                                <p>45 min • 320 cal burned</p>
+                            </div>
+                            <div class="activity-time">2h ago</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="footprints"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h3>Morning Walk</h3>
+                                <p>30 min • 3.2 km</p>
+                            </div>
+                            <div class="activity-time">5h ago</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i data-lucide="bike"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h3>Cycling</h3>
+                                <p>1h 15min • 12.5 km</p>
+                            </div>
+                            <div class="activity-time">Yesterday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Screen -->
+        <div class="screen" id="workout">
+            <header class="screen-header">
+                <h1>Workouts</h1>
+                <button class="filter-btn">
+                    <i data-lucide="filter"></i>
+                </button>
+            </header>
+
+            <div class="screen-content">
+                <!-- Workout Categories -->
+                <div class="workout-categories">
+                    <div class="category-card strength-card">
+                        <div class="category-icon">
+                            <i data-lucide="dumbbell"></i>
+                        </div>
+                        <h3>Strength</h3>
+                        <p>12 workouts</p>
+                        <div class="category-gradient"></div>
+                    </div>
+                    <div class="category-card cardio-card">
+                        <div class="category-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3>Cardio</h3>
+                        <p>8 workouts</p>
+                        <div class="category-gradient"></div>
+                    </div>
+                    <div class="category-card yoga-card">
+                        <div class="category-icon">
+                            <i data-lucide="leaf"></i>
+                        </div>
+                        <h3>Yoga</h3>
+                        <p>15 workouts</p>
+                        <div class="category-gradient"></div>
+                    </div>
+                    <div class="category-card hiit-card">
+                        <div class="category-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3>HIIT</h3>
+                        <p>6 workouts</p>
+                        <div class="category-gradient"></div>
+                    </div>
+                </div>
+
+                <!-- Featured Workout -->
+                <div class="featured-workout">
+                    <h2>Today's Recommendation</h2>
+                    <div class="workout-card featured">
+                        <div class="workout-image">
+                            <div class="workout-duration">
+                                <i data-lucide="clock"></i>
+                                <span>45 min</span>
+                            </div>
+                        </div>
+                        <div class="workout-info">
+                            <h3>Full Body HIIT</h3>
+                            <p>High intensity interval training for maximum calorie burn</p>
+                            <div class="workout-stats">
+                                <div class="stat">
+                                    <i data-lucide="flame"></i>
+                                    <span>400-500 cal</span>
+                                </div>
+                                <div class="stat">
+                                    <i data-lucide="trending-up"></i>
+                                    <span>Intermediate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="start-workout-btn">
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Workouts -->
+                <div class="popular-workouts">
+                    <h2>Popular This Week</h2>
+                    <div class="workout-list">
+                        <div class="workout-item">
+                            <div class="workout-thumbnail">
+                                <i data-lucide="dumbbell"></i>
+                            </div>
+                            <div class="workout-details">
+                                <h3>Push Day</h3>
+                                <p>Chest, Shoulders, Triceps</p>
+                                <div class="workout-meta">
+                                    <span>60 min</span>
+                                    <span>•</span>
+                                    <span>Advanced</span>
+                                </div>
+                            </div>
+                            <button class="workout-action">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                        <div class="workout-item">
+                            <div class="workout-thumbnail">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div class="workout-details">
+                                <h3>Cardio Blast</h3>
+                                <p>Fat burning cardio session</p>
+                                <div class="workout-meta">
+                                    <span>30 min</span>
+                                    <span>•</span>
+                                    <span>Beginner</span>
+                                </div>
+                            </div>
+                            <button class="workout-action">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                        <div class="workout-item">
+                            <div class="workout-thumbnail">
+                                <i data-lucide="leaf"></i>
+                            </div>
+                            <div class="workout-details">
+                                <h3>Morning Yoga</h3>
+                                <p>Gentle flow to start your day</p>
+                                <div class="workout-meta">
+                                    <span>20 min</span>
+                                    <span>•</span>
+                                    <span>All levels</span>
+                                </div>
+                            </div>
+                            <button class="workout-action">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Screen -->
+        <div class="screen" id="progress">
+            <header class="screen-header">
+                <h1>Progress</h1>
+                <div class="period-selector">
+                    <button class="period-btn active" data-period="week">Week</button>
+                    <button class="period-btn" data-period="month">Month</button>
+                    <button class="period-btn" data-period="year">Year</button>
+                </div>
+            </header>
+
+            <div class="screen-content">
+                <!-- Progress Overview -->
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Weekly Goal</h3>
+                        <div class="progress-value">
+                            <span class="large-number">4</span>
+                            <span class="progress-unit">/ 5 workouts</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i data-lucide="footprints"></i>
+                        </div>
+                        <div class="stat-value">
+                            <span class="counter" data-target="52847">0</span>
+                        </div>
+                        <div class="stat-label">Steps this week</div>
+                        <div class="stat-change positive">
+                            <i data-lucide="trending-up"></i>
+                            <span>+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i data-lucide="flame"></i>
+                        </div>
+                        <div class="stat-value">
+                            <span class="counter" data-target="12450">0</span>
+                        </div>
+                        <div class="stat-label">Calories burned</div>
+                        <div class="stat-change positive">
+                            <i data-lucide="trending-up"></i>
+                            <span>+8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div class="stat-value">
+                            <span class="counter" data-target="320">0</span>
+                        </div>
+                        <div class="stat-label">Active minutes</div>
+                        <div class="stat-change positive">
+                            <i data-lucide="trending-up"></i>
+                            <span>+15%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div class="stat-value">
+                            <span class="counter" data-target="43.2">0</span>
+                        </div>
+                        <div class="stat-label">Distance (km)</div>
+                        <div class="stat-change positive">
+                            <i data-lucide="trending-up"></i>
+                            <span>+5%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Placeholder -->
+                <div class="chart-container">
+                    <h2>Activity Trend</h2>
+                    <div class="chart-placeholder">
+                        <div class="chart-bars">
+                            <div class="bar" style="height: 60%"></div>
+                            <div class="bar" style="height: 80%"></div>
+                            <div class="bar" style="height: 45%"></div>
+                            <div class="bar" style="height: 90%"></div>
+                            <div class="bar" style="height: 70%"></div>
+                            <div class="bar" style="height: 85%"></div>
+                            <div class="bar" style="height: 95%"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                            <span>Sun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements">
+                    <h2>Recent Achievements</h2>
+                    <div class="achievement-list">
+                        <div class="achievement-item earned">
+                            <div class="achievement-badge">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h3>Week Warrior</h3>
+                                <p>Complete 5 workouts in a week</p>
+                            </div>
+                            <div class="achievement-date">Today</div>
+                        </div>
+                        <div class="achievement-item earned">
+                            <div class="achievement-badge">
+                                <i data-lucide="target"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h3>Step Master</h3>
+                                <p>Walk 10,000 steps in a day</p>
+                            </div>
+                            <div class="achievement-date">2 days ago</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-badge">
+                                <i data-lucide="flame"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h3>Calorie Crusher</h3>
+                                <p>Burn 3,000 calories in a day</p>
+                            </div>
+                            <div class="achievement-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span>65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen" id="profile">
+            <header class="screen-header">
+                <h1>Profile</h1>
+                <button class="profile-menu-btn" id="profileMenuBtn">
+                    <div class="hamburger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </header>
+
+            <div class="screen-content">
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24' fill='none' stroke='%2300ff88' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'%3E%3C/path%3E%3Ccircle cx='12' cy='7' r='4'%3E%3C/circle%3E%3C/svg%3E" alt="Profile">
+                        <button class="edit-avatar-btn">
+                            <i data-lucide="camera"></i>
+                        </button>
+                    </div>
+                    <h2>Mutlu Kurt</h2>
+                    <p>Fitness Enthusiast</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="stat-number">156</span>
+                            <span class="stat-label">Workouts</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="stat-number">28</span>
+                            <span class="stat-label">Streak</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Badges</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Menu -->
+                <div class="profile-menu">
+                    <div class="menu-section">
+                        <h3>Health & Fitness</h3>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="target"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Goals & Targets</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Health Data</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="activity"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Activity History</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3>Social</h3>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Friends</span>
+                                <div class="menu-badge">12</div>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Challenges</span>
+                                <div class="menu-badge">3</div>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <h3>Settings</h3>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="bell"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Notifications</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Privacy</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-icon">
+                                <i data-lucide="help-circle"></i>
+                            </div>
+                            <div class="menu-content">
+                                <span>Help & Support</span>
+                                <i data-lucide="chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="fab" id="fab">
+            <i data-lucide="plus"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/dataManager.js"></script>
+    <script src="js/workoutManager.js"></script>
+    <script src="js/stepCounter.js"></script>
+    <script src="js/healthManager.js"></script>
+    <script src="js/achievementManager.js"></script>
+    <script src="js/uiManager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

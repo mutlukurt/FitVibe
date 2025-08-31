@@ -4,12 +4,14 @@
 
 **A modern, responsive fitness tracking web application built with vanilla JavaScript, HTML5, and CSS3**
 
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-FitVibe-success?style=for-the-badge&logo=github)](https://mutlukurt.github.io/FitVibe/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![CSS3](https://img.shields.io/badge/CSS3-Modern-blue.svg)](https://www.w3.org/Style/CSS/)
 [![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-green.svg)](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
 
-[Live Demo](#) • [Features](#features) • [Installation](#installation) • [Usage](#usage) • [Contributing](#contributing)
+**[🌟 Try Live Demo](https://mutlukurt.github.io/FitVibe/)** • [Features](#features) • [Installation](#installation) • [Usage](#usage) • [Contributing](#contributing)
 
 </div>
 
